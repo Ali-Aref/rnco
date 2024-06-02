@@ -33,6 +33,7 @@ module.exports = {
           950: "#0C0C0C",
         },
         info: {
+          DEFAULT: "#0ea5e9",
           50: "#f0f9ff",
           100: "#e0f2fe",
           200: "#bae6fd",
