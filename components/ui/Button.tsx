@@ -22,8 +22,8 @@ type ButtonProps = TouchableOpacityProps & {
     | "secondary"
     | "info"
     | "success"
-    | "wanring"
-    | "distructive"
+    | "warning"
+    | "destructive"
     | "link"
     | "outline"
     | "ghost";
@@ -34,8 +34,8 @@ const variantStyles: Record<ButtonProps["variant"], string> = {
   secondary: "bg-secondary",
   info: "bg-info",
   success: "bg-success",
-  wanring: "bg-warning",
-  distructive: "bg-distructive",
+  warning: "bg-warning",
+  destructive: "bg-destructive",
   outline: "border-2 border-primary",
   link: "bg-none",
   ghost: "bg-none",
@@ -46,8 +46,8 @@ const variantTextStyles: Record<ButtonProps["variant"], string> = {
   outline: "text-primary",
   info: "text-white",
   success: "text-white",
-  wanring: "text-white",
-  distructive: "text-white",
+  warning: "text-white",
+  destructive: "text-white",
   link: "underline",
   ghost: "text-black",
 };

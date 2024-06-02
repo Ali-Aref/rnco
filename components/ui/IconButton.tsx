@@ -21,8 +21,8 @@ type IconButtonProps = TouchableOpacityProps & {
     | "secondary"
     | "info"
     | "success"
-    | "wanring"
-    | "distructive"
+    | "warning"
+    | "destructive"
     | "link"
     | "outline"
     | "ghost";
@@ -33,8 +33,8 @@ const variantStyles: Record<IconButtonProps["variant"], string> = {
   secondary: "bg-secondary",
   info: "bg-info",
   success: "bg-success",
-  wanring: "bg-warning",
-  distructive: "bg-distructive",
+  warning: "bg-warning",
+  destructive: "bg-destructive",
   outline: "border-2 border-primary",
   link: "border-b-2 border-primary",
   ghost: "bg-none",
@@ -45,8 +45,8 @@ const variantTextStyles: Record<IconButtonProps["variant"], string> = {
   outline: "text-primary",
   info: "text-white",
   success: "text-white",
-  wanring: "text-white",
-  distructive: "text-white",
+  warning: "text-white",
+  destructive: "text-white",
   link: "underline",
   ghost: "text-black",
 };

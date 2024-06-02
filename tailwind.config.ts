@@ -72,7 +72,7 @@ module.exports = {
           800: "#9a3412",
           900: "#7c2d12",
         },
-        distructive: {
+        destructive: {
           DEFAULT: "#E63535",
           50: "#FEE2E2",
           100: "#FECACA",
