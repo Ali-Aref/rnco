@@ -3,7 +3,6 @@ import {
   Animated,
   Easing,
   StyleSheet,
-  Text,
   TouchableOpacity,
   TouchableOpacityProps,
 } from "react-native";
@@ -11,8 +10,8 @@ import tw from "../../tw";
 import { ClassInput } from "twrnc";
 import { EvilIcons } from "@expo/vector-icons";
 
-type ButtonProps = TouchableOpacityProps & {
-  children: String;
+type IconButtonProps = TouchableOpacityProps & {
+  icon: React.ReactNode;
   style?: ClassInput;
   labelStyle?: ClassInput;
   size?: "sm" | "md" | "lg";
@@ -29,7 +28,7 @@ type ButtonProps = TouchableOpacityProps & {
     | "ghost";
 };
 
-const variantStyles: Record<ButtonProps["variant"], string> = {
+const variantStyles: Record<IconButtonProps["variant"], string> = {
   primary: "bg-primary",
   secondary: "bg-secondary",
   info: "bg-info",
@@ -37,10 +36,10 @@ const variantStyles: Record<ButtonProps["variant"], string> = {
   wanring: "bg-warning",
   distructive: "bg-distructive",
   outline: "border-2 border-primary",
-  link: "bg-none",
+  link: "border-b-2 border-primary",
   ghost: "bg-none",
 };
-const variantTextStyles: Record<ButtonProps["variant"], string> = {
+const variantTextStyles: Record<IconButtonProps["variant"], string> = {
   primary: "text-white",
   secondary: "text-white",
   outline: "text-primary",
@@ -52,13 +51,13 @@ const variantTextStyles: Record<ButtonProps["variant"], string> = {
   ghost: "text-black",
 };
 
-export default function Button({
-  children,
+export default function IconButton({
+  icon,
   variant,
   style,
   labelStyle,
   ...props
-}: ButtonProps) {
+}: IconButtonProps) {
   const spinValue = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
@@ -75,22 +74,21 @@ export default function Button({
   return (
     <TouchableOpacity
       style={tw.style(
-        "px-3 py-2 rounded flex flex-row items-center gap-2",
+        "px-3 py-2 rounded-xl flex flex-row items-center gap-1",
         variantStyles[variant],
         style,
       )}
       {...props}
     >
-      {props.loading && (
+      {props.loading ? (
         <Animated.View style={styles(spinValue).loading}>
           <EvilIcons name="spinner-3" size={20} style={tw.style(
 						variantTextStyles[variant]
 					)} />
         </Animated.View>
+      ) : (
+        icon
       )}
-      <Text style={tw.style("", variantTextStyles[variant], labelStyle)}>
-        {children}
-      </Text>
     </TouchableOpacity>
   );
 }
