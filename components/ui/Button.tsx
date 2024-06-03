@@ -37,8 +37,8 @@ const variantStyles: Record<ButtonProps["variant"], string> = {
   warning: "bg-warning",
   destructive: "bg-destructive",
   outline: "border-2 border-primary",
-  link: "bg-none",
-  ghost: "bg-none",
+  link: "",
+  ghost: "",
 };
 const variantTextStyles: Record<ButtonProps["variant"], string> = {
   primary: "text-white",
@@ -48,8 +48,8 @@ const variantTextStyles: Record<ButtonProps["variant"], string> = {
   success: "text-white",
   warning: "text-white",
   destructive: "text-white",
-  link: "underline",
-  ghost: "text-black",
+  link: "underline text-black dark:text-white",
+  ghost: "text-black text-black dark:text-white",
 };
 
 export default function Button({

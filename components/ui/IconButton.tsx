@@ -37,7 +37,7 @@ const variantStyles: Record<IconButtonProps["variant"], string> = {
   destructive: "bg-destructive",
   outline: "border-2 border-primary",
   link: "border-b-2 border-primary",
-  ghost: "bg-none",
+  ghost: "",
 };
 const variantTextStyles: Record<IconButtonProps["variant"], string> = {
   primary: "text-white",
@@ -47,8 +47,8 @@ const variantTextStyles: Record<IconButtonProps["variant"], string> = {
   success: "text-white",
   warning: "text-white",
   destructive: "text-white",
-  link: "underline",
-  ghost: "text-black",
+  link: "underline text-black dark:text-white",
+  ghost: "text-black dark:text-white",
 };
 
 export default function IconButton({
@@ -82,9 +82,11 @@ export default function IconButton({
     >
       {props.loading ? (
         <Animated.View style={styles(spinValue).loading}>
-          <EvilIcons name="spinner-3" size={20} style={tw.style(
-						variantTextStyles[variant]
-					)} />
+          <EvilIcons
+            name="spinner-3"
+            size={20}
+            style={tw.style(variantTextStyles[variant])}
+          />
         </Animated.View>
       ) : (
         icon
