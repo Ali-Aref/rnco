@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const plugin = require("tailwindcss/plugin");
+
 module.exports = {
   content: [],
   theme: {
@@ -89,5 +91,15 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(({ addUtilities }: any) => {
+      addUtilities({
+        ".text": "text-gray-900 dark:text-gray-100",
+        ".view": "bg-gray-50 dark:bg-slate-800",
+        ".input": "px-2 rounded-md border-2 border-gray-200 dark:border-slate-500",
+        ".vstack": "flex flex-col flex-1",
+        ".hstack": "flex flex-row flex-1",
+      });
+    }),
+  ],
 };

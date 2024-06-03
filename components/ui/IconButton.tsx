@@ -61,7 +61,7 @@ export default function IconButton({
   const spinValue = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-    Animated.loop(
+    props.loading && Animated.loop(
       Animated.timing(spinValue, {
         toValue: 1,
         duration: 2000,

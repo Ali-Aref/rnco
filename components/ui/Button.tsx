@@ -17,6 +17,7 @@ type ButtonProps = TouchableOpacityProps & {
   labelStyle?: ClassInput;
   size?: "sm" | "md" | "lg";
   loading?: boolean;
+	icon?: React.ReactNode,
   variant:
     | "primary"
     | "secondary"
@@ -57,19 +58,20 @@ export default function Button({
   variant,
   style,
   labelStyle,
+	icon,
   ...props
 }: ButtonProps) {
   const spinValue = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-    Animated.loop(
-      Animated.timing(spinValue, {
-        toValue: 1,
-        duration: 2000,
-        easing: Easing.linear,
-        useNativeDriver: false,
-      }),
-    ).start();
+      Animated.loop(
+        Animated.timing(spinValue, {
+          toValue: 1,
+          duration: 2000,
+          easing: Easing.linear,
+          useNativeDriver: false,
+        }),
+      ).start();
   }, []);
 
   return (
@@ -83,11 +85,14 @@ export default function Button({
     >
       {props.loading && (
         <Animated.View style={styles(spinValue).loading}>
-          <EvilIcons name="spinner-3" size={20} style={tw.style(
-						variantTextStyles[variant]
-					)} />
+          <EvilIcons
+            name="spinner-3"
+            size={20}
+            style={tw.style(variantTextStyles[variant])}
+          />
         </Animated.View>
       )}
+			{icon && icon}
       <Text style={tw.style("", variantTextStyles[variant], labelStyle)}>
         {children}
       </Text>
