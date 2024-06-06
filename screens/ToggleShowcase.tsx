@@ -8,7 +8,7 @@ import Card from "../components/ui/Card";
 import { RootSiblingParent } from "react-native-root-siblings";
 import Toggle from "../components/ui/toggle";
 
-export default function App() {
+export default function ToggleShowcase() {
   useDeviceContext(tw);
 
   return (

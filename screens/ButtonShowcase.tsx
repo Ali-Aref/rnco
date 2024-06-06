@@ -8,7 +8,7 @@ import { StatusBar } from "expo-status-bar";
 import { useDeviceContext } from "twrnc";
 
 
-export default function App() {
+export default function ButtonShowcase() {
   // useDeviceContext(tw);
 
 	const ICON_LIGHT = <AntDesign name="home" size={20} style={tw`text-white`} />;

@@ -7,7 +7,7 @@ import Card from "../components/ui/Card";
 import { RootSiblingParent } from "react-native-root-siblings";
 import Pagination from "../components/ui/Pageniation";
 
-export default function App() {
+export default function PaginationShowcase() {
   useDeviceContext(tw);
 
   return (
