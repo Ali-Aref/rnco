@@ -12,7 +12,7 @@ import { ClassInput } from "twrnc";
 import { EvilIcons } from "@expo/vector-icons";
 
 type ButtonProps = TouchableOpacityProps & {
-  children: String;
+  children: String| React.ReactNode;
   style?: ClassInput;
   labelStyle?: ClassInput;
   size?: "sm" | "md" | "lg";
