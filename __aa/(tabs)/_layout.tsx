@@ -7,21 +7,22 @@ export default function TabsLayout() {
 	console.log("tabslayout called")
   return (
     <Tabs screenOptions={{
-			tabBarShowLabel: false
+			tabBarShowLabel: false,
 		}}>
       <Tabs.Screen name="index" options={{
+				headerShown: false,
 				tabBarIcon(props) {
-				    return <AntDesign name="database" size={35} />
+				    return <AntDesign name="home" size={25} />
 				},
 			}} />
       <Tabs.Screen name="HomeTab" options={{
 				tabBarIcon(props) {
-				    return <AntDesign name="home" size={35} />
+				    return <AntDesign name="plus" size={25} />
 				},
 			}} />
       <Tabs.Screen name="ProfileTab" options={{
 				tabBarIcon(props) {
-				    return <AntDesign name="user" size={35} />
+				    return <AntDesign name="user" size={25} />
 				},
 			}} />
     </Tabs>
