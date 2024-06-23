@@ -6,9 +6,10 @@ import { View } from 'react-native';
 
 export default function RootLayout() {
   return (
-    <Stack screenOptions={{ headerShown: true }}>
-			<Stack.Screen name="onBoarding" options={{ headerShown: false }} />
-			<Stack.Screen name="index" />
+    <Stack screenOptions={{ headerShown: false }}>
+			<Stack.Screen name="auth" />
+			<Stack.Screen name="onBoarding" />
+			<Stack.Screen name="index" options={{ headerShown: true }} />
 			<Stack.Screen name="profile" options={{
 				headerShown: true,
 				title: "NO profile"

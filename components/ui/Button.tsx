@@ -93,7 +93,7 @@ export default function Button({
         </Animated.View>
       )}
 			{icon && icon}
-      <Text style={tw.style("", variantTextStyles[variant], labelStyle)}>
+      <Text style={tw.style("flex-1 text-center", variantTextStyles[variant], labelStyle)}>
         {children}
       </Text>
     </TouchableOpacity>
