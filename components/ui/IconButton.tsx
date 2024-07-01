@@ -74,7 +74,7 @@ export default function IconButton({
   return (
     <TouchableOpacity
       style={tw.style(
-        "px-3 py-2 rounded-xl flex flex-row items-center gap-1",
+        "px-3 py-2 rounded-xl flex flex-row items-center justify-center gap-1",
         variantStyles[variant],
         style,
       )}
