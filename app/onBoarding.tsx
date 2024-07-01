@@ -5,7 +5,6 @@ import {
   FlatList,
   Image,
   useWindowDimensions,
-  Dimensions,
   ViewToken,
 } from "react-native";
 import tw from "../tw";
@@ -30,6 +29,11 @@ const Slides = [
       "Welcome to AHD application. The first payment app in Afghanistan. Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
     image: require("../assets/images/draw/topup.png"),
   },
+  {
+    title: "Send HprogressWidthala 2",
+    content: "Welcome to AHD application. The first payment app in Afghanistan",
+    image: require("../assets/images/draw/send.png"),
+  },
 ];
 
 export default function OnBoardingScreen() {
@@ -50,10 +54,10 @@ export default function OnBoardingScreen() {
   }) => {
     if (viewableItems.length > 0) {
       setcurrentIndex(viewableItems[0].index ?? 0);
+      progressWidth.value = withSpring(
+        (width / Slides.length) * ((viewableItems[0].index ?? 0) + 1),
+      );
     }
-    progressWidth.value = withSpring(
-      (width / Slides.length) * (viewableItems[0].index + 1),
-    );
   };
 
   const handleNextSlide = () => {
@@ -62,6 +66,8 @@ export default function OnBoardingScreen() {
       progressWidth.value = withSpring(
         progressWidth.value + width / Slides.length,
       );
+    } else {
+      console.log("handle route to login");
     }
   };
 
