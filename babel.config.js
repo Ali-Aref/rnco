@@ -4,6 +4,7 @@ module.exports = function (api) {
     presets: ["babel-preset-expo"],
     plugins: [
       [
+				// for pathing
         "module-resolver",
         {
           root: ["./"],
@@ -11,6 +12,8 @@ module.exports = function (api) {
             components: "./components",
           },
         },
+				// reanimated
+				"react-native-reanimated/plugin",
       ],
     ],
   };
