@@ -53,7 +53,7 @@ export default function ResetPassswordScreen() {
               </TouchableOpacity>
             }
           />
-          <Button variant="primary">Login</Button>
+          <Button variant="primary">Reset Password</Button>
           <Button variant="ghost" labelStyle={tw`font-semibold`} onPress={()=>navigation.goBack()}>Back</Button>
         </View>
       </View>
