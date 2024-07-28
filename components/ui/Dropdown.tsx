@@ -1,19 +1,26 @@
 
-import React, { useState } from 'react';
+import React, { useState, ComponentProps, SetStateAction } from 'react';
 import { View, Text, useColorScheme } from 'react-native';
-import tw from '@/tw';
 import { Dropdown as DefaultDropdown } from 'react-native-element-dropdown';
+import tw from '@/tw';
 
-type DropdownProps = {
-	items: { label: string, value: string | number }[],
+type DefaultDropdownProps = Omit<ComponentProps<typeof DefaultDropdown>, 'labelField' | 'valueField'>;
+
+type DropdownProps = DefaultDropdownProps & {
+	data: any[],
+	labelField?: any,
+	valueField?: any,
 	error?: string;
 }
 type SelectedItem = string | { label: string; value: any }
 
 export default function Dropdown(props: DropdownProps) {
 	const {
-		items,
+		data,
+		labelField="label",
+		valueField="value",
 		error,
+		onChange,
 		...other
 	} = props
 	const colorSchema = useColorScheme()
@@ -33,18 +40,20 @@ export default function Dropdown(props: DropdownProps) {
 				itemTextStyle={tw`text`}
 				activeColor={tw.color(colorSchema === "light" ? 'bg-slate-300' : 'bg-slate-500 ')}
 				containerStyle={tw`bg-slate-200 dark:bg-slate-600 border-0 rounded-md overflow-hidden`}
-				inputSearchStyle={tw`text bg-slate-300 dark:bg-slate-500 rounded-sm border-0`}
-				data={items}
-				labelField="label"
-				valueField="value"
+				inputSearchStyle={tw`text bg-slate-300 dark:bg-slate-500 rounded-md border-0`}
+				data={data}
+				//@ts-ignore
+				labelField={labelField}
+				//@ts-ignore
+				valueField={valueField}
 				placeholder={!focused ? 'Select item' : '...'}
-				// searchPlaceholder="Search..."
 				value={selected}
 				onFocus={() => setFocused(true)}
 				onBlur={() => setFocused(false)}
-				onChange={item => {
+				onChange={(item: any) => {
 					setSelected(item.value);
 					setFocused(false);
+					onChange(item.value)
 				}}
 				{...other}
 			/>
