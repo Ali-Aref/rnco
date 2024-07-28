@@ -5,11 +5,15 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import { useDeviceContext } from 'twrnc';
-import { View, Text } from "react-native"
 import 'react-native-reanimated';
+
 
 import { useColorScheme } from '@/components/useColorScheme';
 import tw from '@/tw';
+import Toast from 'react-native-toast-message';
+import { toastConfig } from '@/components/ui/ToastConfig';
+
+
 
 export {
 	// Catch any errors thrown by the Layout component.
@@ -18,8 +22,8 @@ export {
 
 export const unstable_settings = {
 	// Ensure that reloading on `/modal` keeps a back button present.
-	// initialRouteName: '(tabs)',
-	initialRouteName: 'auth',
+	initialRouteName: '(tabs)',
+	// initialRouteName: 'auth',
 };
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -46,21 +50,24 @@ export default function RootLayout() {
 		return null;
 	}
 
-	return <RootLayoutNav />;
+	return <RootLayoutNav />
 }
 
 function RootLayoutNav() {
 	useDeviceContext(tw)
 	const colorScheme = useColorScheme();
 
-	return (
-			<Stack key={tw.memoBuster} screenOptions={{
-				headerStyle: tw`header`,
-				headerTintColor: tw.color(colorScheme === "dark" ? `slate-100` : `slate-900`),
-			}}>
-				<Stack.Screen name="auth" options={{ headerShown: false }} />
-				<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-				<Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-			</Stack>
-	);
+	return <>
+		<Stack key={tw.memoBuster} 
+		initialRouteName={unstable_settings.initialRouteName}
+		screenOptions={{
+			headerStyle: tw`header`,
+			headerTintColor: tw.color(colorScheme === "dark" ? `slate-100` : `slate-900`),
+		}}>
+			<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+			<Stack.Screen name="auth" options={{ headerShown: false }} />
+			<Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+		</Stack>
+		<Toast config={toastConfig} />
+	</>
 }
