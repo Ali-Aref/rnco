@@ -1,16 +1,12 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import {
-	Animated,
-	Easing,
+    ActivityIndicator,
 	Pressable,
-	StyleSheet,
 	Text,
-	TouchableOpacity,
 	TouchableOpacityProps,
 } from "react-native";
 import tw from "../../tw";
 import { ClassInput } from "twrnc";
-import { EvilIcons } from "@expo/vector-icons";
 
 type ButtonProps = TouchableOpacityProps & {
 	children: String | React.ReactNode;
@@ -61,18 +57,6 @@ export default function Button({
 	icon,
 	...props
 }: ButtonProps) {
-	const spinValue = useRef(new Animated.Value(0)).current;
-
-	useEffect(() => {
-		Animated.loop(
-			Animated.timing(spinValue, {
-				toValue: 1,
-				duration: 2000,
-				easing: Easing.linear,
-				useNativeDriver: false,
-			}),
-		).start();
-	}, []);
 
 	return (
 		<Pressable
@@ -87,37 +71,10 @@ export default function Button({
 			{...props}
 		>
 			{icon && icon}
-
-			{props.loading && (
-				<Animated.View style={styles(spinValue).loading}>
-					<EvilIcons
-						name="spinner-3"
-						size={20}
-						style={tw.style(variantTextStyles[variant])}
-					/>
-				</Animated.View>
-			)}
+			{props.loading &&  <ActivityIndicator />}
 			<Text style={tw.style("text-center", variantTextStyles[variant], labelStyle)}>
 				{children}
 			</Text>
 		</Pressable>
 	);
 }
-
-const styles = (animatedValue: Animated.Value) =>
-	StyleSheet.create({
-		loading: {
-			justifyContent: "center",
-			alignItems: "center",
-			height: 20,
-			width: 20,
-			transform: [
-				{
-					rotate: animatedValue.interpolate({
-						inputRange: [0, 1],
-						outputRange: ["0deg", "360deg"],
-					}),
-				},
-			],
-		},
-	});
