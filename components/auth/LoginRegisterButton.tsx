@@ -2,7 +2,7 @@ import tw from '@/tw';
 import React, { useState } from 'react';
 import { Dimensions, TouchableOpacity, View, Text } from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
-import { Link, useNavigation } from 'expo-router';
+import { Link } from 'expo-router';
 
 const width = Dimensions.get("window").width
 
@@ -27,16 +27,16 @@ export default function LoginRegisterButton() {
 
 	return (
 		<View style={tw`flex-1 justify-center`}>
-			<View style={tw`rounded-full w-full h-11 py-2 flex-row justify-between card border-2 border-slate-300 `}>
-				<Animated.View style={[tw`absolute rounded-full h-10 w-[49%] bg-primary`, animatedStyles]} />
-				<Link href="auth/" asChild>
+			<View style={tw`rounded-full w-full h-12 py-2 flex-row justify-between card border-2 border-slate-300 `}>
+				<Animated.View style={[tw`absolute rounded-full h-11 w-[49%] bg-primary`, animatedStyles]} />
+				<Link href={"auth/" as never} asChild>
 					<TouchableOpacity style={tw`w-1/2 items-center `} onPress={() => moveAnimatedBox("left")}>
 						<Text style={tw.style(`text text-center text-lg`, {
 							"text-white font-bold": selectedTab === "login"
 						})}>Login</Text>
 					</TouchableOpacity>
 				</Link>
-				<Link href={"auth/register"} asChild>
+				<Link href={"auth/register" as never} asChild>
 					<TouchableOpacity style={tw`w-1/2 items-center `} onPress={() => moveAnimatedBox("right")}>
 						<Text style={tw.style(`text text-center text-lg`, {
 							"text-white font-bold": selectedTab === "register"
