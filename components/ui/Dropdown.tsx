@@ -1,4 +1,3 @@
-
 import React, { useState, ComponentProps, SetStateAction } from 'react';
 import { View, Text, useColorScheme } from 'react-native';
 import { Dropdown as DefaultDropdown } from 'react-native-element-dropdown';
