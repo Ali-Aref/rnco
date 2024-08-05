@@ -28,7 +28,7 @@ export default function Dropdown(props: DropdownProps) {
 	const [selected, setSelected] = useState<SelectedItem>("");
 
 	return (
-		<View style={tw``}>
+		<View>
 			<DefaultDropdown
 				style={tw.style(`bg-slate-200 dark:bg-slate-600 p-2 rounded-md flex-row items-center justify-between`, {
 					'bg-slate-300 dark:bg-slate-500': focused,
@@ -38,7 +38,7 @@ export default function Dropdown(props: DropdownProps) {
 				placeholderStyle={tw`text`}
 				selectedTextStyle={tw`text`}
 				itemTextStyle={tw`text`}
-				activeColor={tw.color(colorSchema === "light" ? 'bg-slate-300' : 'bg-slate-500 ')}
+				activeColor={tw.color(colorSchema === "light" ? 'bg-slate-300' : 'bg-slate-500')}
 				containerStyle={tw`bg-slate-200 dark:bg-slate-600 border-0 rounded-md overflow-hidden`}
 				inputSearchStyle={tw`text bg-slate-300 dark:bg-slate-500 rounded-md border-0`}
 				data={data}

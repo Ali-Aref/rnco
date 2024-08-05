@@ -4,8 +4,8 @@ import { StyleSheet, Text, View } from 'react-native';
 
 export default function TabTwoScreen() {
   return (
-    <View style={tw``}>
-			<Text style={tw``}>Index two</Text>
+    <View style={{}}>
+			<Text style={{}}>Index two</Text>
     </View>
   );
 }
