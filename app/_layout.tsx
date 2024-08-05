@@ -8,7 +8,7 @@ import { useDeviceContext } from 'twrnc';
 import 'react-native-reanimated';
 
 
-import { useColorScheme } from '@/components/useColorScheme';
+import { useColorScheme } from 'react-native';
 import tw from '@/tw';
 import Toast from 'react-native-toast-message';
 import { toastConfig } from '@/components/ui/ToastConfig';
@@ -21,7 +21,6 @@ export {
 } from 'expo-router';
 
 export const unstable_settings = {
-	// Ensure that reloading on `/modal` keeps a back button present.
 	initialRouteName: '(tabs)',
 	// initialRouteName: 'auth',
 };
@@ -66,7 +65,6 @@ function RootLayoutNav() {
 		}}>
 			<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
 			<Stack.Screen name="auth" options={{ headerShown: false }} />
-			<Stack.Screen name="modal" options={{ presentation: 'modal' }} />
 		</Stack>
 		<Toast config={toastConfig} />
 	</>

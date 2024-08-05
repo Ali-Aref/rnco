@@ -8,6 +8,7 @@ import Dropdown from '@/components/ui/Dropdown';
 import { SetStateAction, useEffect, useState } from 'react';
 import { AntDesign } from '@expo/vector-icons';
 import Toast from 'react-native-toast-message';
+import { ExternalLink } from '@/components/ui/ExternalLink';
 
 const items = [
 	{ label: "Python", value: "1" },
@@ -29,6 +30,9 @@ export default function TabOneScreen() {
 	return (
 		<View style={tw`view vstack`}>
 			<View style={tw`h-44 w-full px-20 pt-20 gap-5`}>
+				<ExternalLink href="https://aliaref.dev" style={tw`text text-lg`}>
+					Ali Aref Website
+				</ExternalLink>
 				<Dropdown data={items}
 					labelField={"label"}
 					valueField={"value"}

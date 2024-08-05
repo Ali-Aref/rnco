@@ -1,7 +1,6 @@
 import tw from '@/tw';
 import React, { useState } from 'react';
-import { Dimensions, TouchableOpacity, View } from 'react-native';
-import { Text } from '../Themed';
+import { Dimensions, TouchableOpacity, View, Text } from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 import { Link, useNavigation } from 'expo-router';
 
