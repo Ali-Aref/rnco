@@ -5,7 +5,7 @@ import {
 	Text,
 	TouchableOpacityProps,
 } from "react-native";
-import tw from "../../tw";
+import tw from "@/tw";
 import { ClassInput } from "twrnc";
 
 type ButtonProps = TouchableOpacityProps & {
