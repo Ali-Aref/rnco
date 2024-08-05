@@ -21,8 +21,8 @@ export {
 } from 'expo-router';
 
 export const unstable_settings = {
-	initialRouteName: '(tabs)',
-	// initialRouteName: 'auth',
+	initialRouteName: 'tabs1',
+	// initialRouteName: 'tabs1/index',
 };
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -63,7 +63,7 @@ function RootLayoutNav() {
 			headerStyle: tw`header`,
 			headerTintColor: tw.color(colorScheme === "dark" ? `slate-100` : `slate-900`),
 		}}>
-			<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+			<Stack.Screen name="tabs1" options={{ headerShown: false }} />
 			<Stack.Screen name="auth" options={{ headerShown: false }} />
 		</Stack>
 		<Toast config={toastConfig} />
