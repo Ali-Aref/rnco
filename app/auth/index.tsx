@@ -32,6 +32,7 @@ export default function LoginScreen() {
 					<Text style={tw`text`}>Remember me</Text>
 				</Pressable>
 				<Link href="auth/forgotPassword" style={tw`text text-primary`}>Forgot password?</Link>
+				<Link href="auth/lock-screen" style={tw`text text-primary`}>LOCK</Link>
 			</View>
 		</View>
 	);
