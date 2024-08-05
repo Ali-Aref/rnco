@@ -55,6 +55,7 @@ export default function Button({
 	style,
 	labelStyle,
 	icon,
+	loading,
 	...props
 }: ButtonProps) {
 
@@ -71,7 +72,7 @@ export default function Button({
 			{...props}
 		>
 			{icon && icon}
-			{props.loading &&  <ActivityIndicator />}
+			{loading &&  <ActivityIndicator />}
 			<Text style={tw.style("text-center", variantTextStyles[variant], labelStyle)}>
 				{children}
 			</Text>
